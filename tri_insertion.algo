@@ -1,0 +1,23 @@
+PROCEDURE insertion(var arr ARRAY_OF INTEGER)
+VAR
+    i,j,x:INTEGER;
+BEGIN
+     FOR i FROM 1 TO arr.length STEP 1 DO
+        x:=arr[i];
+        j:=i-1
+        WHILE (j>=0 && arr[j]>x) DO
+            arr[j+1]:=arr[j];
+            j:=j-1;
+        END_WHILE
+        arr[j+1]:=x;
+    END_FOR
+END
+ALGORITHM tri_insertion
+VAR
+    arr ARRAY_OF INTEGER:[1, 19, 13, 2, 6, 7, 9];
+BEGIN
+    insertion(arr); 
+    FOR i FROM 0 TO arr.length-1 STEP 1  DO
+    write(arr[i]);
+    END_FOR
+END
